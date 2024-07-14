@@ -1,0 +1,61 @@
+circle {
+    transition: all 1s linear;
+  }
+  #c1{
+    transition: all 1s linear;
+    stroke: #DDDEDF;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: transparent;
+  }
+  
+  #c2 {
+    transition: all 1s linear;
+    stroke: #545557;
+    stroke-width: 3;
+    stroke-linecap: round;
+    fill: transparent;
+  }
+  
+  #counterText {
+    -webkit-animation: heartBeat 1s infinite;
+    animation: heartBeat 1s infinite;
+    font-size: x-small;
+  }
+  
+  @-webkit-keyframes heartBeat {
+    0%   {
+      opacity: 0;
+    }
+    5%   {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes heartBeat {
+    0%   {
+      opacity: 0;
+    }
+    5%   {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  #minute{
+    display: none;
+  }
+
+  #second{
+    display: none;
+  }

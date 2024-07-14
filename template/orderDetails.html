@@ -1,0 +1,102 @@
+<!-- order_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaterEase</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+    .container {
+      max-width: 960px;
+    }
+    .table-responsive {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+{% include "header.html" %}
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Orders</h1>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>User Name</th>
+            <th>Caterer Name</th>
+            <th>Ordered Time</th>
+            <th>Ordered Food List</th>
+            <th>Order Day</th>
+            <th>Delivery Date</th>
+            <th>Delivery Time</th>
+            <th>Delivery Address</th>
+            <th>Phone Number</th>
+            <th>Function Name</th>
+            <th>Food Amount</th>
+            <th>GSTIN</th>
+            <th>Total Price</th>
+            <th>Delivery Charge</th>
+            <th>Total Member Veg</th>
+            <th>Total Member Nonveg</th>
+            <th>Total Paid</th>
+            <th>Note</th>
+            <th>ordered food</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>{{ order.user_id.get_full_name }}</td>
+            <td>{{ order.caterer_id.get_full_name }}</td>
+            <td>{{ order.ordered_time }}</td>
+            <td>{{ order.ordered_food_list }}</td>
+            <td>{{ order.get_order_day_display }}</td>
+            <td>{{ order.delivery_date }}</td>
+            <td>{{ order.delivery_time }}</td>
+            <td>{{ order.delivery_address }}</td>
+            <td>{{ order.phone_number }}</td>
+            <td>{{ order.function_name }}</td>
+            <td>{{ order.food_amount }}</td>
+            <td>{{ order.gstin }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>{{ order.delivery_charge }}</td>
+            <td>{{ order.total_member_veg }}</td>
+            <td>{{ order.total_member_nonveg }}</td>
+            <td>{{ order.total_paid }}</td>
+            <td>{{ order.note }}</td>
+            <td><a href="http://127.0.0.1:8000/orderDetails/?show={{order.id}}">show order</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+        
+  </div>
+  <div class="d-flex align-items-center py-4 bg-body-tertiary">
+  <main class="form-signin w-100 m-auto mt-5">
+    <div class="container-fluid">
+  {% for key,name in type %}
+        
+        
+            {% for item in selected_items %}
+            {% if item.menu_catagory == key %}
+            <h2>{{name}}</h2>
+              <div class="row">
+                  <div class="col-md-2"><image class="d-block h-100 w-100" src="/media/{{ item.food_image }}" ></image></div>
+                  <div class="col-md-4"><h3><b>{{item.name}}</b></h3></div>
+                  <div class="col-md-2"><h3><b>{{item.type_food}}</b></h3></div>
+              </div><br>
+              {%endif%}
+            {% endfor %}
+        {%endfor%}
+    </div>
+        
+    </main>
+</div>
+</div>
+</body>
+</html>
