@@ -1,0 +1,60 @@
+/* Default styles */
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the container horizontally */
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url("waiter-carries-plate-with-tasty-snacks.jpg");
+  background-size: 100% auto; /* Make the background image responsive */
+}
+
+.container-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  border-radius: 20px; /* Rounded corners */
+  padding: 40px; /* Add padding inside the container */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .form-signin {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-signin {
+    padding: 10px;
+  }
+}

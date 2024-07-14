@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/signin_front.css" rel="stylesheet">
+
+
+  <style>
+    /* Responsive CSS */
+    @media (max-width: 768px) {
+      .form-signin {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .form-signin {
+        padding: 10px;
+      }
+    }
+
+    .outer-box {
+      border: 1px solid #ced4da;
+      border-radius: 10px;
+      padding: 20px;
+      margin: auto;
+      width: 80%; /* Adjust width as needed */
+      max-width: 400px; /* Adjust max-width as needed */
+      margin-top: 40px;
+      box-shadow: 0 0 10px rgba(12, 12, 12, 0.1); /* Optional: Add shadow */
+      background-color: azure;
+    }
+
+    .user-img {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+{% include "header.html" %}
+<body class="text-center">
+  <div class="outer-box">
+    <main class="form-signin">
+      <form method="post">
+        {% csrf_token %}
+        
+        <h1 class="h3 mb-3 fw-normal">Order Details</h1>
+
+        <div class="form-floating">
+          <input type="date" class="form-control" name="orderDate" id="date" placeholder="dd/mm/yyyy" required>
+          <label for="date">dd/mm/yyyy</label>
+        </div>
+        
+        <div class="form-floating">
+          <input type="time" class="form-control" name="orderTime" id="time" placeholder="hh:mm:ss" required>
+          <label for="time">Order Time</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" name="functionName" id="function" placeholder="Function Name" required>
+            <label for="function">Function Name</label>
+        </div>
+
+
+        <div class="form-floating">
+            <input type="number" class="form-control" name="functionNonMember" id="non_member" placeholder="NonVeg Member" required>
+            <label for="non_member">NonVeg Member</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" name="functionVegMember" id="veg_member" placeholder="Veg Member" required>
+            <label for="veg_member">Veg Member</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" name="zip" id="zip" placeholder="" required>
+          <label for="zip">zip code to delivery</label>
+      </div>
+
+        
+        {%for message in messages%}
+            <p>{{message}}</p>
+        {%endfor%}
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
